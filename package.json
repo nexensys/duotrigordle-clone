@@ -27,12 +27,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn deploy:checkout-orphan && yarn deploy:add && yarn deploy:commit && yarn deploy:push && yarn deploy:checkout-main",
+    "deploy": "yarn deploy:checkout-orphan && yarn deploy:add && yarn deploy:commit && yarn deploy:push && yarn deploy:checkout-main && yarn deploy:cleanup",
     "deploy:checkout-orphan": "git checkout --orphan gh-pages",
     "deploy:add": "git --work-tree build add --all",
     "deploy:commit": "git --work-tree build commit -m 'gh-pages'",
     "deploy:push": "git push origin HEAD:gh-pages --force",
-    "deploy:checkout-main": "git checkout -f master"
+    "deploy:checkout-main": "git checkout -f master",
+    "deploy:cleanup": "git branch -d gh-pages"
   },
   "eslintConfig": {
     "extends": "react-app"
