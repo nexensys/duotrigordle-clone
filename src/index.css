@@ -46,7 +46,6 @@ body.widemode {
   --app-max-width: 1200px;
   --boards-across: 8;
   --boards-vertical: 4;
-  --font-size: calc(var(--app-width) / 35);
   --tile-dim: calc(calc(var(--app-width) * 0.875) / 45);
 }
 
@@ -94,7 +93,6 @@ body {
   --key-background: rgba(0, 0, 0, 0.125);
   --game-over-background: rgba(0, 0, 0, 0.25);
   --background: white;
-  --font-size: calc(var(--app-width) / 25);
 }
 
 @media screen and (pointer: none), (pointer: coarse) {
@@ -103,7 +101,6 @@ body {
     --app-max-width: 600px !important;
     --boards-across: 4 !important;
     --boards-vertical: 8 !important;
-    --font-size: calc(var(--app-width) / 25) !important;
     --tile-dim: calc(calc(var(--app-width) * 0.875) / 22.5) !important;
   }
 }
