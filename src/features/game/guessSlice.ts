@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { WORDS_TARGET } from "../../duotrigordle-copied/consts";
+import { WORDS_VALID } from "../../duotrigordle-copied/consts";
 
 export interface GuessState {
   current: string[];
@@ -36,7 +36,10 @@ export const guessSlice = createSlice({
     addCurrentGuess(state) {
       if (state.current.length < 5)
         console.warn("Guess length too small, failing silently.");
-      else if (!WORDS_TARGET.includes(state.current.join("")) || state.disabled)
+      else if (
+        ![...WORDS_VALID].includes(state.current.join("")) ||
+        state.disabled
+      )
         return;
       else {
         state.guesses.push(state.current);

@@ -1,8 +1,8 @@
-import { WORDS_TARGET } from "./duotrigordle-copied/consts";
+import { WORDS_VALID } from "./duotrigordle-copied/consts";
 import LZString from "lz-string";
 
 export function isValidWord(w: string[]): boolean {
-  return WORDS_TARGET.includes(w.join("").toUpperCase());
+  return [...WORDS_VALID].includes(w.join("").toUpperCase());
 }
 
 export function shouldCheckWord(w: string[]): boolean {
