@@ -31,7 +31,7 @@
     "deploy:checkout-orphan": "git checkout --orphan gh-pages",
     "deploy:add": "git --work-tree build add --all",
     "deploy:commit": "git --work-tree build commit -m 'gh-pages'",
-    "deploy:push": "git push https://<GITHUB_COMMIT_TOKEN>@github.com/ErrorGamer2000/duotrigordle-clone.git HEAD:gh-pages --force",
+    "deploy:push": "git push origin HEAD:gh-pages --force",
     "deploy:checkout-main": "git checkout -f master"
   },
   "eslintConfig": {
