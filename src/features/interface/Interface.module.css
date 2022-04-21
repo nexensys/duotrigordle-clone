@@ -174,7 +174,7 @@
   outline: none !important;
   border-radius: 0.2em;
   background-color: var(--key-background);
-  border: none;
+  border: 2px solid var(--text);
   color: var(--text);
   font-size: 1.25em;
   cursor: pointer;
@@ -184,7 +184,7 @@
   outline: none !important;
   border-radius: 0.2em;
   background-color: var(--key-background);
-  border: none;
+  border: 2px solid var(--text);
   color: var(--text);
   font-size: 1.5em;
   cursor: pointer;
