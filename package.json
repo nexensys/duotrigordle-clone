@@ -33,7 +33,8 @@
     "deploy:commit": "git --work-tree build commit -m 'gh-pages'",
     "deploy:push": "git push origin HEAD:gh-pages --force",
     "deploy:checkout-main": "git checkout -f master",
-    "deploy:cleanup": "git branch -D gh-pages"
+    "deploy:cleanup": "git branch -D gh-pages",
+    "build:deploy": "yarn build && yarn deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
