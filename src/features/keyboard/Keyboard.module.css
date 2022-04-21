@@ -1,0 +1,92 @@
+.Container {
+  display: grid;
+  grid-template-columns: repeat(
+    10,
+    min(calc(calc(var(--app-width) / 10) - 4px), var(--key-dim))
+  );
+  grid-template-rows: repeat(3, var(--key-dim));
+  gap: calc(4px * calc(1 - var(--hide-keyboard)));
+  margin: calc(2px * calc(1 - var(--hide-keyboard)));
+  height: calc(calc(3 * var(--key-dim) + 8px) * calc(1 - var(--hide-keyboard)));
+  margin-right: 0;
+  max-width: 600px;
+  opacity: calc(1 - var(--hide-keyboard));
+  margin: 0 calc(var(--app-width) / 100);
+}
+
+.Key {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  background-color: var(--key-background);
+  color: var(--text);
+  text-transform: uppercase;
+  border-radius: 0.2em;
+  font-size: calc(var(--key-dim) * 0.5);
+  place-items: center;
+  display: grid;
+  z-index: 1;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.KeyL {
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+
+.KeyLetter {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  z-index: 1;
+}
+
+.KeyColors {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  display: grid;
+  grid-template-columns: repeat(var(--boards-across), 1fr);
+  grid-template-rows: repeat(var(--boards-vertical), 1fr);
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.5;
+  gap: 1px;
+}
+
+.KeyIndicator {
+  grid-row-end: span 1;
+  grid-column-end: span 1;
+}
+
+.KeyIndicatorCorrect {
+  background-color: var(--guess-green);
+}
+
+.KeyIndicatorPartial {
+  background-color: var(--guess-yellow);
+}
+
+.KeyNotUsed {
+  opacity: 0.25;
+}
+
+.Enter {
+  grid-row-end: span 2;
+  grid-column-end: span 2;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  z-index: 0;
+}
+
+.EnterPart {
+  grid-row-end: span 1;
+  grid-column-end: span 1;
+  background-color: var(--key-background);
+  color: var(--text);
+  font-size: calc(var(--app-width) / 20);
+  place-items: center;
+  display: grid;
+  z-index: 1;
+  cursor: pointer;
+}

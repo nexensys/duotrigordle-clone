@@ -1,0 +1,16 @@
+.App {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.Container {
+  width: calc(var(--app-width) + 17px);
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+}

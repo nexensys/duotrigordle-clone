@@ -1,0 +1,57 @@
+.Tile {
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  border: 0.05em solid var(--tile-outline);
+  border-radius: 25%;
+  margin: 0.05em;
+  background-color: transparent;
+  transition: background-color 0.125s ease-in-out;
+  height: var(--tile-dim);
+  width: var(--tile-dim);
+}
+.Green {
+  color: black;
+  background-color: var(--guess-green);
+}
+.Yellow {
+  color: black;
+  background-color: var(--guess-yellow);
+}
+.Letter {
+  font-size: 100%;
+  line-height: 0.75;
+}
+.Incorrect {
+  color: var(--guess-text-red);
+}
+
+.Row {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: repeat(5, auto);
+  grid-column: 1 / span 1;
+}
+
+.Board {
+  display: grid;
+  /*flex-direction: column;*/
+  grid-column-end: span 1;
+  transition: opacity 0.125s ease-in-out;
+  margin: auto;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.Container {
+  /*display: grid;*/
+  /*grid-template-columns: repeat(var(--boards-across), auto);*/
+  /*justify-items: center;*/
+  display: grid;
+  grid-template-columns: repeat(var(--boards-across), auto);
+  row-gap: 1.25rem;
+  grid-column: 1 / span 1;
+}
+
+.Complete {
+  opacity: 0.35;
+}

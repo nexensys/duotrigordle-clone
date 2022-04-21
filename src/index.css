@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: white;
+}
+
+#root {
+  background-color: var(--background);
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  user-select: none;
+}
+
+p {
+  margin-block-start: 0.5em !important;
+  margin-block-end: 0.5em !important;
+}
+
+/* --------------------------------- Colors --------------------------------- */
+:root {
+  --white: #fff;
+  --black: #181a1b;
+  --app-red: red;
+  --app-green: green;
+  --guess-black: #181a1b;
+  --guess-yellow: #fc0;
+  --guess-text-red: red;
+}
+
+/* --------------------------- Responsive Styling --------------------------- */
+
+body.widemode {
+  --app-max-width: 1200px;
+  --boards-across: 8;
+  --boards-vertical: 4;
+  --font-size: calc(var(--app-width) / 35);
+  --tile-dim: calc(calc(var(--app-width) * 0.875) / 45);
+}
+
+body.mobile {
+  --app-max-width: 600px;
+}
+
+body.darkmode {
+  --text: white;
+  --tile-outline: rgba(255, 255, 255, 0.5);
+  --key-background: rgba(255, 255, 255, 0.125);
+  --game-over-background: rgba(255, 255, 255, 0.25);
+  --background: black;
+}
+
+body.colorblind {
+  --guess-green: rgb(251, 146, 60);
+  --guess-yellow: rgb(96, 165, 250);
+}
+
+body.hidekeyboard {
+}
+
+body {
+  /* ---------------------------------- Width --------------------------------- */
+  --app-max-width: 600px;
+  --app-width: min(100vw, var(--app-max-width));
+  /* ------------------------------ Accessability ----------------------------- */
+  --dark-mode: 0;
+  --wide-mode: 0;
+  --mobile: 0;
+  --colorblind-mode: 0;
+  --hide-keyboard: 0;
+  /* --------------------------------- Layout --------------------------------- */
+  --board-width: calc(calc(var(--app-width) - 2rem) / 4);
+  --boards-across: 4;
+  --boards-vertical: 8;
+  --key-dim: 55.6px;
+  /* --------------------------------- Colors --------------------------------- */
+  --guess-green: rgb(0, 204, 136);
+  --guess-yellow: rgb(255, 204, 0);
+  --text: black;
+  --tile-dim: calc(calc(var(--app-width) * 0.875) / 22.5);
+  --tile-outline: rgba(0, 0, 0, 0.5);
+  --key-background: rgba(0, 0, 0, 0.125);
+  --game-over-background: rgba(0, 0, 0, 0.25);
+  --background: white;
+  --font-size: calc(var(--app-width) / 25);
+}
+
+@media screen and (pointer: none), (pointer: coarse) {
+  body {
+    --app-max-width: 600px;
+  }
+}
