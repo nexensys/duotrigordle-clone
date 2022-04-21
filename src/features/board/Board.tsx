@@ -39,6 +39,7 @@ const Row: React.FC<{
           letter={props.guess[idx] || ""}
           inWord={
             !props.isCurrentGuess &&
+            props.correctWord[idx] !== (props.guess[idx] || "__") &&
             props.correctWord.includes(props.guess[idx] || "__")
           }
           correctPlace={
