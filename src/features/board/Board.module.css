@@ -3,7 +3,6 @@
   display: grid;
   place-items: center;
   border: 0.05em solid var(--tile-outline);
-  border-radius: 25%;
   margin: 0.05em;
   background-color: transparent;
   transition: background-color 0.125s ease-in-out;
