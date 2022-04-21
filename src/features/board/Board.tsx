@@ -31,6 +31,9 @@ const Row: React.FC<{
   correctWord: string[];
   isCurrentGuess: boolean;
 }> = (props) => {
+  const lettersCorrect = props.guess.filter(
+    (l, idx) => props.correctWord[idx] === l
+  );
   return (
     <>
       {range(5).map((idx) => (
@@ -39,7 +42,7 @@ const Row: React.FC<{
           letter={props.guess[idx] || ""}
           inWord={
             !props.isCurrentGuess &&
-            props.correctWord[idx] !== (props.guess[idx] || "__") &&
+            !lettersCorrect.includes(props.guess[idx]) &&
             props.correctWord.includes(props.guess[idx] || "__")
           }
           correctPlace={
