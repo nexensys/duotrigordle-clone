@@ -100,5 +100,10 @@ body {
 @media screen and (pointer: none), (pointer: coarse) {
   body {
     --app-max-width: 600px;
+    --app-max-width: 600px !important;
+    --boards-across: 8 !important;
+    --boards-vertical: 4 !important;
+    --font-size: calc(var(--app-width) / 25) !important;
+    --tile-dim: calc(calc(var(--app-width) * 0.875) / 22.5) !important;
   }
 }
