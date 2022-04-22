@@ -305,6 +305,9 @@ const GameOver: React.FC<{}> = () => {
     "8️⃣",
     "9️⃣"
   ];
+  function compareWords(a: string[], b: string[]): boolean {
+    return a.join("") === b.join("");
+  }
   const text =
     `${
       game.mode === "daily" ? "Daily" : "Practice"
@@ -317,9 +320,17 @@ const GameOver: React.FC<{}> = () => {
           .map(
             (idx) =>
               "" +
-              (guesses.indexOf(game.words[4 * _idx + idx]) < 9
-                ? "0" + (guesses.indexOf(game.words[4 * _idx + idx]) + 1)
-                : guesses.indexOf(game.words[4 * _idx + idx]) + 1)
+              (guesses.findIndex(
+                compareWords.bind(compareWords, game.words[4 * _idx + idx])
+              ) < 9
+                ? "0" +
+                  (guesses.findIndex(
+                    compareWords.bind(compareWords, game.words[4 * _idx + idx])
+                  ) +
+                    1)
+                : guesses.findIndex(
+                    compareWords.bind(compareWords, game.words[4 * _idx + idx])
+                  ))
           )
           .map((num) =>
             num !== "00"
@@ -345,7 +356,10 @@ const GameOver: React.FC<{}> = () => {
                 }`}
               </div>
               {range(32).map((idx) => {
-                const boardGuesses = guesses.indexOf(game.words[idx]) + 1;
+                const boardGuesses =
+                  guesses.findIndex(
+                    compareWords.bind(compareWords, game.words[idx])
+                  ) + 1;
                 const formattedNum =
                   boardGuesses < 10
                     ? "0" + boardGuesses.toString()
