@@ -292,6 +292,7 @@ const Stats: React.FC<{}> = (props) => {
 
 const GameOver: React.FC<{}> = () => {
   const game = useAppSelector((state) => state.game);
+  const guesses = useAppSelector((state) => state.guess.guesses);
   const numEmojis = [
     "0️⃣",
     "1️⃣",
@@ -316,9 +317,9 @@ const GameOver: React.FC<{}> = () => {
           .map(
             (idx) =>
               "" +
-              (game.boardsCompleted.indexOf(4 * _idx + idx) < 9
-                ? "0" + (game.boardsCompleted.indexOf(4 * _idx + idx) + 1)
-                : game.boardsCompleted.indexOf(4 * _idx + idx) + 1)
+              (guesses.indexOf(game.words[4 * _idx + idx]) < 9
+                ? "0" + (guesses.indexOf(game.words[4 * _idx + idx]) + 1)
+                : guesses.indexOf(game.words[4 * _idx + idx]) + 1)
           )
           .map((num) =>
             num !== "00"
@@ -344,7 +345,7 @@ const GameOver: React.FC<{}> = () => {
                 }`}
               </div>
               {range(32).map((idx) => {
-                const boardGuesses = game.boardsCompleted.indexOf(idx) + 1;
+                const boardGuesses = guesses.indexOf(game.words[idx]) + 1;
                 const formattedNum =
                   boardGuesses < 10
                     ? "0" + boardGuesses.toString()
