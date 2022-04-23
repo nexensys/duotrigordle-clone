@@ -178,10 +178,7 @@ const OptionsMenu: React.FC<{
             <input
               type="checkbox"
               onChange={(e) => {
-                if (e.target.checked) {
-                  dispatch(colorBlind(true));
-                  document.body.classList.add("colorblind");
-                }
+                dispatch(colorBlind(e.target.checked));
               }}
               checked={settings.colorBlind}
             />{" "}
@@ -463,6 +460,11 @@ const Interface: React.FC<{}> = () => {
   useEffect(() => {
     document.body.classList[settings.wideMode ? "add" : "remove"]("widemode");
   }, [settings.wideMode]);
+  useEffect(() => {
+    document.body.classList[settings.colorBlind ? "add" : "remove"](
+      "colorblind"
+    );
+  }, [settings.colorBlind]);
 
   useEffect(() => {
     saveSettings(settings);
