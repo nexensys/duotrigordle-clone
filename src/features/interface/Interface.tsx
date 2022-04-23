@@ -6,7 +6,7 @@ import InterfaceStyle from "./Interface.module.css";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import WideMode from "./WideMode";
 import FullScreen from "./FullScreen";
-import { Calendar, Menu } from "react-feather";
+import { Calendar, HelpCircle, Menu } from "react-feather";
 import { end, loadGame, start } from "../game/gameSlice";
 import {
   colorBlind,
@@ -36,9 +36,11 @@ import {
 import { disable, loadGuesses } from "../game/guessSlice";
 import { newDaily, newPractice } from "../../app/createGame";
 import { className, range } from "../../utils";
+import About from "./About";
 
 const Header: React.FC<{
-  openMenu: () => void;
+  openOptionsMenu: () => void;
+  openAboutMenu: () => void;
 }> = (props) => {
   const game = useAppSelector((state) => state.game);
   const settings = useAppSelector((state) => state.settings);
@@ -74,7 +76,9 @@ const Header: React.FC<{
           " duotrigordle" +
           (game.mode === "daily" ? " #" + game.id : "")}
       </p>
+
       <div className={InterfaceStyle.ToolBar}>
+        {/* Daily Button */}
         <div
           className={InterfaceStyle.Toggle}
           onClick={() => {
@@ -97,6 +101,29 @@ const Header: React.FC<{
             <Calendar />
           </div>
         </div>
+
+        {/* About Button */}
+        <div
+          className={InterfaceStyle.Toggle}
+          onClick={() => {
+            props.openAboutMenu();
+          }}
+        >
+          <div
+            style={{
+              whiteSpace: "nowrap",
+              display: "flex",
+              placeItems: "center",
+              cursor: "pointer",
+              color: "var(--text)",
+              margin: "0 0.3rem"
+            }}
+          >
+            <HelpCircle />
+          </div>
+        </div>
+
+        {/* Dark Mode Button */}
         <div
           className={InterfaceStyle.Toggle}
           onClick={() => {
@@ -109,6 +136,8 @@ const Header: React.FC<{
             className={InterfaceStyle.DarkModeToggle}
           />
         </div>
+
+        {/* Wide Mode Button */}
         <div
           className={InterfaceStyle.Toggle}
           onClick={() => {
@@ -117,6 +146,8 @@ const Header: React.FC<{
         >
           <WideMode checked={settings.wideMode} onChange={() => {}} />
         </div>
+
+        {/* Fullscreen Button */}
         <div
           className={InterfaceStyle.Toggle}
           onClick={() => {
@@ -137,10 +168,12 @@ const Header: React.FC<{
         >
           <FullScreen checked={fullScreen} onChange={() => {}} />
         </div>
+
+        {/* Menu Button */}
         <div
           className={InterfaceStyle.Toggle}
           onClick={() => {
-            props.openMenu();
+            props.openOptionsMenu();
           }}
           style={{
             padding: "0 0.3rem"
@@ -155,7 +188,7 @@ const Header: React.FC<{
 };
 
 const OptionsMenu: React.FC<{
-  closeMenu: () => void;
+  close: () => void;
 }> = (props) => {
   //const [hideKeyboard, setHideKeyboard] = useState(false);
   const settings = useAppSelector((state) => state.settings);
@@ -217,7 +250,7 @@ const OptionsMenu: React.FC<{
       <button
         className={InterfaceStyle.CloseMenu}
         onClick={() => {
-          props.closeMenu();
+          props.close();
         }}
       >
         Close
@@ -422,7 +455,6 @@ const GameOver: React.FC<{}> = () => {
 };
 
 const Interface: React.FC<{}> = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const dispatch = useAppDispatch();
   const id = getTodaysId();
   useLayoutEffect(() => {
@@ -495,9 +527,15 @@ const Interface: React.FC<{}> = () => {
     }
   }, [dispatch, guess.guesses, game.startDate, game.initial]);
 
+  const [optionsMenuOpen, setOptionsMenuOpen] = useState(false);
+  const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
+
   return (
     <div className={InterfaceStyle.Container}>
-      <Header openMenu={setMenuOpen.bind(setMenuOpen, true)} />
+      <Header
+        openOptionsMenu={setOptionsMenuOpen.bind(setOptionsMenuOpen, true)}
+        openAboutMenu={setAboutMenuOpen.bind(setAboutMenuOpen, true)}
+      />
       <Stats />
       <div className={InterfaceStyle.BoardSection}>
         <BoardContainer />
@@ -508,14 +546,28 @@ const Interface: React.FC<{}> = () => {
       <div
         className={InterfaceStyle.MenuContainer}
         style={{
-          ...(menuOpen
+          ...(optionsMenuOpen
             ? {}
             : {
                 display: "none"
               })
         }}
       >
-        <OptionsMenu closeMenu={setMenuOpen.bind(setMenuOpen, false)} />
+        <OptionsMenu
+          close={setOptionsMenuOpen.bind(setOptionsMenuOpen, false)}
+        />
+      </div>
+      <div
+        className={InterfaceStyle.MenuContainer}
+        style={{
+          ...(aboutMenuOpen
+            ? {}
+            : {
+                display: "none"
+              })
+        }}
+      >
+        <About close={setAboutMenuOpen.bind(setAboutMenuOpen, false)} />
       </div>
       {game.gameOver ? <GameOver /> : <React.Fragment />}
     </div>
