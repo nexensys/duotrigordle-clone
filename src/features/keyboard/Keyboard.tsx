@@ -157,7 +157,8 @@ const Key: React.FC<
 const keys = "qwertyuiopasdfghjklzxcvbnm";
 
 const Keyboard: React.FC<{}> = () => {
-  return (
+  const hideKeyboard = useAppSelector((state) => state.settings.hideKeyboard);
+  return !hideKeyboard ? (
     <div className={KeyboardStyle.Container}>
       {keys.split("").map((key, idx) => (
         <Key
@@ -171,6 +172,8 @@ const Keyboard: React.FC<{}> = () => {
       <Key backspace={true} enter={false} />
       <Key backspace={false} enter={true} />
     </div>
+  ) : (
+    <React.Fragment />
   );
 };
 
