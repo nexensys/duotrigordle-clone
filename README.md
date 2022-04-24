@@ -44,12 +44,16 @@ This copies the files in the `build` folder to the `gh-pages` branch of your rep
 
 Make sure to run `yarn build` first, though you should probably use `yarn build:deploy` instead.
 
+This script _will_ erase any changes that are unsynced with git. Make sure to commit before running this command.
+
 ### `yarn build:deploy`
 
 Build the app for production and then deploy it to GitHub Pages.<br />
 This is the same as running `yarn build` and then `yarn deploy`.
 
 Use this over the two seperate commands.
+
+This script _will_ erase any changes that are unsynced with git. Make sure to commit before running this command.
 
 ## Learn More
 
