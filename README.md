@@ -37,6 +37,20 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+### `yarn deploy`
+
+Deploy the app to GitHub Pages.<br />
+This copies the files in the `build` folder to the `gh-pages` branch of your repository so that the source code can remain visible while the build product is still accessible through the root URL of the page.
+
+Make sure to run `yarn build` first, though you should probably use `parn build:deploy` instead.
+
+### `yarn build:deploy`
+
+Build the app for production and then deploy it to GitHub Pages.<br />
+This is the same as running `yarn build` and then `yarn deploy`.
+
+Use this over the two seperate commands.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
