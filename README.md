@@ -42,7 +42,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 Deploy the app to GitHub Pages.<br />
 This copies the files in the `build` folder to the `gh-pages` branch of your repository so that the source code can remain visible while the build product is still accessible through the root URL of the page.
 
-Make sure to run `yarn build` first, though you should probably use `parn build:deploy` instead.
+Make sure to run `yarn build` first, though you should probably use `yarn build:deploy` instead.
 
 ### `yarn build:deploy`
 
