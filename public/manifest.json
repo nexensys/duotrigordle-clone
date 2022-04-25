@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Duotrigordle",
+  "name": "ErrorGamer2000's Duotrigordle Clone",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,8 +13,8 @@
       "sizes": "968x968"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
+  "start_url": "./duotrigordle",
+  "display": "fullscreen",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
