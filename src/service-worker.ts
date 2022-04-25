@@ -1,10 +1,7 @@
 const cacheName = "duotrigordle-clone-v1";
 const assets = [
   "index.html",
-  "static/",
-  "static/css/",
   "static/css/main.0ddedf10.css",
-  "static/js/",
   "static/js/main.db15fb37.js"
 ];
 
