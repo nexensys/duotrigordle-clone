@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/duotrigordle-clone/static/css/main.0ddedf10.css",
+    "main.js": "/duotrigordle-clone/static/js/main.db15fb37.js",
+    "service-worker.js": "/duotrigordle-clone/service-worker.js",
+    "index.html": "/duotrigordle-clone/index.html",
+    "main.0ddedf10.css.map": "/duotrigordle-clone/static/css/main.0ddedf10.css.map",
+    "main.db15fb37.js.map": "/duotrigordle-clone/static/js/main.db15fb37.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ddedf10.css",
+    "static/js/main.db15fb37.js"
+  ]
+}

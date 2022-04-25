@@ -1,0 +1,22 @@
+{
+  "short_name": "Duotrigordle",
+  "name": "ErrorGamer2000's Duotrigordle Clone",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "968x968"
+    }
+  ],
+  "start_url": ".",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": ".",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
