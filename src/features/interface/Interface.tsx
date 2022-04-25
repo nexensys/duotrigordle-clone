@@ -354,13 +354,22 @@ const GameOver: React.FC<{}> = () => {
                 compareWords.bind(compareWords, game.words[4 * _idx + idx])
               ) < 9
                 ? "0" +
-                  (guesses.findIndex(
-                    compareWords.bind(compareWords, game.words[4 * _idx + idx])
-                  ) +
-                    1)
-                : guesses.findIndex(
-                    compareWords.bind(compareWords, game.words[4 * _idx + idx])
-                  ))
+                  (
+                    guesses.findIndex(
+                      compareWords.bind(
+                        compareWords,
+                        game.words[4 * _idx + idx]
+                      )
+                    ) + 1
+                  ).toString()
+                : (
+                    guesses.findIndex(
+                      compareWords.bind(
+                        compareWords,
+                        game.words[4 * _idx + idx]
+                      )
+                    ) + 1
+                  ).toString())
           )
           .map((num) =>
             num !== "00"
